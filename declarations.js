@@ -1,6 +1,8 @@
 const root = document.getElementById('root');
 const ul = document.getElementById('ul');
-
+const medicines = document.getElementById('medicines');
+const input = document.getElementById('input');
+const submit = document.getElementById('submit');
 
 function createCard(inn){
   let card = document.createElement('div');
@@ -51,12 +53,69 @@ function groupFn(group){
   });
 } // create card with every medicine
 
+function showMedicines(array){
+  removeGenerics();
+  array.map(item => {
+    let li = document.createElement('li');
+    li.classList.add('list-group-item');
+    li.textContent = item;
+    medicines.appendChild(li);
+  });
+
+} // render list of generics
+
 document.addEventListener('click', (e) => {
   if(e.target.className === 'card-body'){
-    console.log(e.target);
+    clearCardColor();
+    e.target.style.backgroundColor = 'orange';
+    let drug = e.target.textContent;
+    let buttons = Array.from(document.querySelectorAll('li>button'));
+    let result = buttons.filter((item) => {
+      if(item.className === 'btn btn-success'){
+        return item;
+      }
+    });
+    let phGroup = result[0].textContent;
+    let newArray = data[phGroup][drug].join(',').split(',');
+    showMedicines(newArray);
   }
+}); // click on inn
+
+function removeGenerics() {
+  let generics = document.querySelectorAll('#medicines>.list-group-item');
+  let genericsArr = Array.from(generics);
+  genericsArr.forEach(arr => {
+    medicines.removeChild(arr);
+  });
+} // remove generics so we can add new ones
+
+function clearCardColor(){
+  let cards = document.querySelectorAll('.card-body');
+  let cardsArr = Array.from(cards);
+  cardsArr.forEach((card) => 
+    card.style.backgroundColor = 'white'
+  );
+} // make card background white 
+
+input.addEventListener('input', (e) => {
+  e.preventDefault();
+  let value = input.value.toUpperCase();
+  filterNames(value);
+  // input.value = '';
 });
 
-function addHover(){
-  
+function filterNames(inputVal) {
+  let cards = document.querySelectorAll('.card-body');
+  let cardsArr = Array.from(cards);
+  let newArr = cardsArr.map((card) => {
+    if(card.textContent.toUpperCase().indexOf(inputVal)>-1){
+      card.parentElement.style.display = '';
+    } else {
+      card.parentElement.style.display = 'none';
+    }
+  });
 }
+
+
+
+

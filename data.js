@@ -1,9 +1,9 @@
 let data = {
   ARBs : {
     valsartan : ["Valsacor, Valtensin, Diovan, Nortivan, Valsavil, Sarteg, Valsalen, Exforge, Wamlox, Vapress, Sartoval, Valstor, Suvartar"],
-    telmisartan : ["Micardis, Telmisartan Telmisartan/HCT Telmitan, Telmotens, Telsart Teva, Teva, Tezeo, Tolucombi, Tolura, Twynsta"],
+    telmisartan : ["Micardis, Telmisartan, Telmisartan/HCT, Telmitan, Telmotens, Telsart Teva, Teva, Tezeo, Tolucombi, Tolura, Twynsta"],
     losartan : ["Co-hypertonic, Lorista, Lozap, Rasoltan, Tores"],
-    candesartan : ["Acrux, Atacand, Candecard Cantab, Carzap, Repido"],
+    candesartan : ["Acrux, Atacand, Candecard, Cantab, Carzap, Repido"],
     olmesartan : ["Olmesta, Tensar, Tespadan"],
     irbesartan : ["Co-irbesso, Irbec, Irbesan, Irbesartan Accord, Irprezide"],
   },

@@ -59,3 +59,13 @@ let data = {
     Tamsulozine : ["Omnic, Tamsol, Focusin, Tamsudil, Tanyz, Urimax, Vesomni, Duodart"],
   }
 }
+
+let asd = [];
+let allDrugs = [];
+let asd2 = Object.entries(data);
+for([key, value] of asd2){
+  asd.push(value);
+}
+asd.map(item => {
+  allDrugs.push(...Object.keys(item));
+});

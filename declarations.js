@@ -2,7 +2,9 @@ const root = document.getElementById('root');
 const ul = document.getElementById('ul');
 const medicines = document.getElementById('medicines');
 const input = document.getElementById('input');
-const submit = document.getElementById('submit');
+const showAllDrugs = document.getElementById('showAllDrugs');
+
+let showAllBool = false;
 
 function createCard(inn){
   let card = document.createElement('div');
@@ -114,8 +116,17 @@ function filterNames(inputVal) {
       card.parentElement.style.display = 'none';
     }
   });
-}
+} // use index of to filter drugs on input
 
-
-
+showAllDrugs.addEventListener('click', (e) => {
+  if(showAllBool){
+    allDrugs.map(drug => {
+      createCard(drug);
+    });
+  } else if (!showAllBool){
+    let cards = Array.from(document.querySelectorAll('.card'));
+    cards.forEach(item => root.removeChild(item));
+  }
+  showAllBool = !showAllBool;
+});
 
